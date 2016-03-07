@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block head_title %}{% endblock %}</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	
+	{% load staticfiles %}
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'dist/css/AdminLTE.css' %}">
+    <link rel="stylesheet" href="{% static 'dist/css/skins/skin-blue-light.min.css' %}">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{% static 'plugins/iCheck/square/blue.css' %}">
+    <!-- jQuery 2.1.4 -->
+    <script src="{% static 'plugins/jQuery/jQuery-2.1.4.min.js' %}"></script>
+	<script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.6/dist/js/alertify.js"></script>
+	
+    {% block extra_head %}
+    {% endblock %}
+  </head>
+  
+  <body class="hold-transition login-page">
+  
+    {% block body %}
+
+	{% if messages %}
+			{% for message in messages %}
+			<script>alertify.logPosition("bottom right");alertify.success('{{message}}');</script>
+			{% endfor %}
+	{% endif %}
+	
+	<div class="login-box">
+		  <div class="login-logo">
+			<a href="/"><b>Jerry</b>Finance</a>
+		  </div><!-- /.login-logo -->
+		        <div class="login-box-body">
+					
+					{% block content %}
+					{% endblock %}
+				</div><!-- /.login-box-body -->
+
+    </div><!-- /.login-box -->
+	
+    {% endblock %}
+	
+    {% block extra_body %}
+    {% endblock %}
+	
+
+    <!-- Bootstrap 3.3.5 -->
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- AdminLTE App -->
+    <script src="{% static 'dist/js/app.min.js' %}"></script>
+    <!-- iCheck -->
+    <script src="{% static 'plugins/iCheck/icheck.min.js' %}"></script>
+	
+    <script>
+      $(function () {
+        $('input').iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%' // optional
+        });
+      });
+    </script>
+	
+  </body>
+</html>

@@ -1,0 +1,60 @@
+.stockinfo-block {
+  display: block;
+  margin: 15px 0;
+  text-align: center;
+  height: 30px;
+  line-height:30px;
+}
+.stockinfo-block.margin-bottom {
+  margin-bottom: 25px;
+}
+.stockinfo-block > .stockinfo-header {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  font-size: 16px;
+}
+.stockinfo-block > .stockinfo-text {
+  text-transform: uppercase;
+}
+
+.stockinfo-price {
+  font-size: 2em;
+}
+
+.stockinfo-percent {
+  font-size: 2em;
+}
+
+.stockinfo-type {
+  font-size: 20px;
+}
+
+.stockinfo-id{
+  font-size: 20px;
+}
+
+.stockinfo-name{
+  font-size: 30px;
+}
+
+.stockinfo-border-right {
+	border-right: 2px solid #eee;
+	padding: 10px;
+}
+.stockinfo-border {
+	padding: 10px;
+}
+
+.profile-content{
+	padding: 10px;
+	padding-left: 110px;
+}
+
+.profile-box-text{
+  font-size: 20px;
+}
+
+.profile-box-number{
+  font-size: 30px;
+}

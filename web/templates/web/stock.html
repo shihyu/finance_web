@@ -1,0 +1,99 @@
+﻿{% extends 'web/base.html' %}
+
+{% block after_head %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="{% static 'js/stock.js' %}" type="text/javascript"></script>
+{% endblock after_head %}
+
+
+{% block content_title %}
+個股概覽
+{% endblock content_title %}
+
+
+{% block content_payload %}
+
+	<div class="row">
+	
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="info-box">
+				<div class="info-box-content2">
+				
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-xs-6 stockinfo-border-right">
+						  <div class="stockinfo-block">
+							<span class="stockinfo-id" id='stock_symbolid'></span>
+							<span class="stockinfo-name" id='stock_symbol'></span>
+						  </div><!-- /.description-block -->
+						</div><!-- /.col -->
+						<div class="col-md-2 col-sm-2 col-xs-6 stockinfo-border-right">
+						  <div class="stockinfo-block ">
+							<span class="stockinfo-price" id='stock_price'>
+							    <i class="fa fa-refresh fa-spin"></i>
+							</span>
+						  </div><!-- /.description-block -->
+						</div><!-- /.col -->
+						<div class="col-md-2 col-sm-2 col-xs-6 stockinfo-border-right">
+						  <div class="stockinfo-block">
+							<span class="stockinfo-price" id='stock_change'>
+							    <i class="fa fa-refresh fa-spin"></i>
+							</span>
+						  </div><!-- /.description-block -->
+						</div><!-- /.col -->	
+						<div class="col-md-2 col-sm-2 col-xs-6 stockinfo-border-right">
+						  <div class="stockinfo-block">
+							<span class="stockinfo-percent" id='stock_percent'>
+							    <i class="fa fa-refresh fa-spin"></i>
+							</span>
+						  </div><!-- /.description-block -->
+						</div><!-- /.col -->	
+						<div class="col-md-2 col-sm-2 col-xs-12 stockinfo-border">
+						  <div class="stockinfo-block">
+							<span class="stockinfo-type" id='stock_type'>
+							    <i class="fa fa-refresh fa-spin"></i>
+							</span>
+						  </div><!-- /.description-block -->
+						  
+						</div><!-- /.col -->
+					</div>	
+                        
+				</div><!-- /.info-box-content -->
+			</div><!-- /.info-box -->
+		</div><!-- /.col -->
+
+	</div><!-- /.row -->
+
+
+	<div class="row">
+            <div class="col-md-12">
+              <div class="info-box">		
+				<div class="box-body">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="container" style="height: 700px; min-width: 310px"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		
+<div id='result'></div>
+
+
+	
+	
+	
+<script>
+get_info({{sid}});
+get_info_now({{sid}});
+get_history({{sid}});
+$("#li_stock").addClass("active");
+</script>
+	
+
+{% endblock content_payload %}
